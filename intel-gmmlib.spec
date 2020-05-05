@@ -29,8 +29,7 @@ developing applications that use %{name}.
 
 # rpmlint fixes
 chmod -x LICENSE.md
-find Source -name "*.cpp" -exec chmod -x {} ';'
-find Source -name "*.h" -exec chmod -x {} ';'
+find . -name "*.cpp" -o -name "*.h" -exec chmod -x {} ';'
 
 %build
 mkdir build
