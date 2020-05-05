@@ -8,7 +8,7 @@ URL:            https://01.org/linuxmedia/vaapi
 
 Source0:        https://github.com/intel/gmmlib/archive/%{name}-%{version}.tar.gz
 
-BuildRequires:  cmake
+BuildRequires:  cmake3
 BuildRequires:  gcc-c++
 
 %description
@@ -34,7 +34,7 @@ find . -name "*.cpp" -o -name "*.h" -exec chmod -x {} ';'
 %build
 mkdir build
 pushd build
-%cmake \
+%cmake3 \
   -DRUN_TEST_SUITE:BOOL=False \
   ..
 
