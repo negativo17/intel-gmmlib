@@ -1,3 +1,5 @@
+%global __cmake_in_source_build 1
+
 Name:           intel-gmmlib
 Epoch:          1
 Version:        20.3.2
