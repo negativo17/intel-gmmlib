@@ -2,7 +2,7 @@
 
 Name:           intel-gmmlib
 Epoch:          1
-Version:        20.3.3
+Version:        20.4.1
 Release:        1%{?dist}
 Summary:        Intel Graphics Memory Management Library
 License:        MIT and BSD
@@ -63,6 +63,9 @@ popd
 %{_libdir}/pkgconfig/igdgmm.pc
 
 %changelog
+* Tue Jan  5 2021 Simone Caronni <negativo17@gmail.com> - 1:20.4.1-1
+- Update to 2020 Q4 Release.
+
 * Fri Dec 04 2020 Simone Caronni <negativo17@gmail.com> - 1:20.3.3-1
 - Update to 20.3.3.
 
