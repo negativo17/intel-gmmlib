@@ -2,7 +2,7 @@
 
 Name:           intel-gmmlib
 Epoch:          1
-Version:        21.1.1
+Version:        21.1.3
 Release:        1%{?dist}
 Summary:        Intel Graphics Memory Management Library
 License:        MIT and BSD
@@ -10,8 +10,14 @@ URL:            https://01.org/linuxmedia/vaapi
 
 Source0:        https://github.com/intel/gmmlib/archive/%{name}-%{version}.tar.gz
 
-BuildRequires:  cmake3
 BuildRequires:  gcc-c++
+
+%if 0%{?fedora} || 0%{?rhel} >= 8
+BuildRequires:  cmake >= 3.5
+%else
+BuildRequires:  cmake3 >= 3.5
+%endif
+
 
 %description
 The Intel Graphics Memory Management Library provides device specific and buffer
@@ -36,7 +42,11 @@ find . -name "*.cpp" -o -name "*.h" -exec chmod -x {} ';'
 %build
 mkdir build
 pushd build
+%if 0%{?fedora} || 0%{?rhel} >= 8
+%cmake \
+%else
 %cmake3 \
+%endif
   -DRUN_TEST_SUITE:BOOL=False \
   ..
 
@@ -55,7 +65,7 @@ popd
 %files
 %license LICENSE.md
 %{_libdir}/libigdgmm.so.11
-%{_libdir}/libigdgmm.so.11.2.0
+%{_libdir}/libigdgmm.so.11.3.0
 
 %files devel
 %{_includedir}/igdgmm
@@ -63,6 +73,9 @@ popd
 %{_libdir}/pkgconfig/igdgmm.pc
 
 %changelog
+* Wed Jun 23 2021 Simone Caronni <negativo17@gmail.com> - 1:21.1.3-1
+- Update to 2021 Q1 Release 3.
+
 * Sun Apr 04 2021 Simone Caronni <negativo17@gmail.com> - 1:21.1.1-1
 - Update to 2021 Q1 Release.
 
