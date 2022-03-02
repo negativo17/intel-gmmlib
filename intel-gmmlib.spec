@@ -2,7 +2,7 @@
 
 Name:           intel-gmmlib
 Epoch:          1
-Version:        22.0.2
+Version:        22.0.3
 Release:        1%{?dist}
 Summary:        Intel Graphics Memory Management Library
 License:        MIT and BSD
@@ -73,6 +73,9 @@ popd
 %{_libdir}/pkgconfig/igdgmm.pc
 
 %changelog
+* Wed Mar 02 2022 Simone Caronni <negativo17@gmail.com> - 1:22.0.3-1
+- Update to 22.0.3.
+
 * Thu Feb 03 2022 Simone Caronni <negativo17@gmail.com> - 1:22.0.2-1
 - Update to 22.0.2.
 
