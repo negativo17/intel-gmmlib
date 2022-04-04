@@ -1,23 +1,15 @@
-%global __cmake_in_source_build 1
-
 Name:           intel-gmmlib
 Epoch:          1
 Version:        22.1.2
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Intel Graphics Memory Management Library
 License:        MIT and BSD
 URL:            https://01.org/linuxmedia/vaapi
 
 Source0:        https://github.com/intel/gmmlib/archive/%{name}-%{version}.tar.gz
 
+BuildRequires:  cmake3
 BuildRequires:  gcc-c++
-
-%if 0%{?fedora} || 0%{?rhel} >= 8
-BuildRequires:  cmake >= 3.5
-%else
-BuildRequires:  cmake3 >= 3.5
-%endif
-
 
 %description
 The Intel Graphics Memory Management Library provides device specific and buffer
@@ -42,20 +34,19 @@ find . -name "*.cpp" -o -name "*.h" -exec chmod -x {} ';'
 %build
 mkdir build
 pushd build
-%if 0%{?fedora} || 0%{?rhel} >= 8
-%cmake \
-%else
+
+
 %cmake3 \
-%endif
   -DRUN_TEST_SUITE:BOOL=False \
   ..
 
-%make_build
+%cmake3_build
 popd
 
 %install
 pushd build
-%make_install
+%cmake3_install
+
 find %{buildroot} -name '*.la' -delete
 find %{buildroot} -name '*.a' -delete
 popd
@@ -73,6 +64,9 @@ popd
 %{_libdir}/pkgconfig/igdgmm.pc
 
 %changelog
+* Mon Apr 04 2022 Simone Caronni <negativo17@gmail.com> - 1:22.1.2-2
+- Split out configuration for epel-7.
+
 * Wed Mar 30 2022 Simone Caronni <negativo17@gmail.com> - 1:22.1.2-1
 - Update to 22.1.2.
 
