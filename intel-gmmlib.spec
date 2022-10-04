@@ -46,7 +46,7 @@ find %{buildroot} -name '*.a' -delete
 %files
 %license LICENSE.md
 %{_libdir}/libigdgmm.so.12
-%{_libdir}/libigdgmm.so.12.1.0
+%{_libdir}/libigdgmm.so.12.2.0
 
 %files devel
 %{_includedir}/igdgmm
