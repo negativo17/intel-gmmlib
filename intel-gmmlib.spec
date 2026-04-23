@@ -1,6 +1,6 @@
 Name:           intel-gmmlib
 Epoch:          1
-Version:        22.9.0
+Version:        22.10.0
 Release:        1%{?dist}
 Summary:        Intel Graphics Memory Management Library
 License:        MIT and BSD
@@ -52,6 +52,9 @@ find %{buildroot} -name '*.a' -delete
 %{_libdir}/pkgconfig/igdgmm.pc
 
 %changelog
+* Thu Apr 23 2026 Simone Caronni <negativo17@gmail.com> - 1:22.10.0-1
+- Update to 22.10.0.
+
 * Fri Dec 19 2025 Simone Caronni <negativo17@gmail.com> - 1:22.9.0-1
 - Update to 22.9.0.
 
